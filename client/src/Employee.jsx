@@ -21,7 +21,7 @@ export function Employee() {
       </div> */}
 
       <h1>Venue Ops</h1>
-      <div className="check-in-out-button">
+      <div className="main-button">
         <button>
           Check Out
         </button>

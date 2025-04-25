@@ -8,7 +8,14 @@ export function Events() {
         <>
             <Nav otherPage="/" logout={logout} />
             <h1>Events</h1>
-            <p>This is a test to see if a long string of text will fix an issue.</p>
+
+            <div className="main-button">
+                <button>
+                    Add Event
+                </button>
+            </div>
+
+            <p>No events to show.</p>
         </>
     );
 }
