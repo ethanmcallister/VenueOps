@@ -1,9 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vite + Django</title>
+  <title>Venue Ops</title>
+  <link rel="icon" href="{ static '/favicon.ico'}" type="image/x-icon">
   {% if debug %}
     <script type="module">
       import RefreshRuntime from '{{asset_url}}/static/@react-refresh'

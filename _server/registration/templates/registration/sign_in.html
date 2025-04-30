@@ -1,6 +1,14 @@
 {% extends "registration/base.html"%}
-
 {% block content %}
+{% load static %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'registration/style.css' %}">
+  <title>Sign In</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <form action="/registration/sign_in/" method="post">
   {% csrf_token %}
   <div>
