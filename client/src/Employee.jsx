@@ -1,10 +1,35 @@
+import { useEffect, useState } from 'react'
 import { Nav } from './Nav.jsx'
 import { EmployeeCard } from './EmployeeCard.jsx'
-import { useOutletContext } from 'react-router-dom';
+import { Link, useOutletContext } from 'react-router-dom';
+
+import { useNavigate } from "react-router-dom";
+
 import './App.css'
 
 export function Employee() {
+  const [user, setUser] = useState(null);
   const { logout } = useOutletContext();
+  const navigate = useNavigate();
+
+  const handleCheckin = () => {
+    navigate('/employee/checkin');
+  }
+
+  async function fetchLoggedInUser() {
+    const res = await fetch('/api/me', {
+      credentials: 'same-origin', // include cookies!
+    });
+    const body = await res.json();
+    console.log(body.user)
+
+    setUser(body.user);
+  }
+
+  useEffect(() => {
+    fetchLoggedInUser();
+  }
+  , []);
 
   return (
     <>
@@ -21,9 +46,15 @@ export function Employee() {
       </div> */}
 
       <h1>Venue Ops</h1>
+      
+      {user && <p>Hello, {user.first_name}</p>}
+      {user && user.is_checked_in && <p>Status: <span style={{ color: 'green'}}>You are checked to work</span></p>}
+      {user && !user.is_checked_in && <p>Status: <span style={{ color: 'red' }}>Away from work</span></p>}
+      {/* <h4>Status: <span style={{ color: 'red' }}>Away from work</span></h4> */}
+
       <div className="main-button">
-        <button>
-          Check Out
+        <button onClick={handleCheckin}>
+          Check In 
         </button>
       </div>
 
