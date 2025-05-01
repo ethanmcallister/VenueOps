@@ -127,6 +127,8 @@ nav li {
   align-items: center;
   gap: 1rem;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 .status-dot-active {

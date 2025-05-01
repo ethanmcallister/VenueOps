@@ -8,6 +8,10 @@ export function Checkin() {
         <>
             <Nav otherPage="/" logout={logout} />
             <h1>Checkin</h1>
+
+            <form action="/api/check_in/" method="post">
+               {/* stuff here  */}
+            </form>
         </>
     )
 }
