@@ -16,6 +16,10 @@ export function Events() {
             </div>
 
             <p>No events to show.</p>
+
+            <footer>
+                Copyright: Ethan McAllister
+            </footer>
         </>
     );
 }
