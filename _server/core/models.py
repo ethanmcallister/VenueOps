@@ -19,8 +19,8 @@ class Employee(AbstractUser):
 
 class CheckIn(models.Model):
     id = models.AutoField(primary_key=True)
+    employee = models.OneToOneField(Employee, on_delete=models.CASCADE)
     check_in_time = models.DateTimeField(auto_now_add=True)
     check_out_time = models.DateTimeField(null=True, blank=True)
     location = models.CharField(max_length=100)
-    user = models.OneToOneField(Employee, on_delete=models.CASCADE)
     tasks = models.JSONField(null=True, blank=True)
